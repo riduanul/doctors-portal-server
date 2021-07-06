@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 const uri = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.4xssl.mongodb.net/${process.env.DB_USER}?retryWrites=true&w=majority`;
-
+const m = 6;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true },{ connectTimeoutMS: 30000 }, { keepAlive: 1});
 client.connect(err => {
   const appointmentCollection = client.db("DoctosPortal").collection("Appointment");
